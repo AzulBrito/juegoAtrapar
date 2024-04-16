@@ -1,15 +1,23 @@
 class Canasta{
   private PVector posicion;
   private PImage canasta;
+  private PVector velocidad;
   
+  //constructor
   public Canasta(){
-  canasta= loadImage("canasta.png");
+  canasta= loadImage("cesta.png");
   }
-  public void dubujar(){
+  public void dibujar(){
    imageMode(CENTER);
    image(canasta,posicion.x, posicion.y, 150,150);
   }
-  public void setMover(){
-    
+  
+  public void mover(int direccion){
+        if(direccion==0){
+      this.posicion.x-=this.velocidad.x;
+    }
+    if(direccion==1){
+      this.posicion.x+=this.velocidad.x;
   }
+}
 }
