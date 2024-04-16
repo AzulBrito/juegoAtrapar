@@ -3,21 +3,29 @@ color colorear= color (190,130,50,150);
 private Canasta canasta;
 
 void setup(){
- size(600,400); 
- fondo= loadImage("fondo.jpg");
-// canasta.setPosicion(new PVector(width/2,height/2));
-}
-void draw(){
-  tint(colorear);
-   image(fondo,0,0);
-   canasta.dibujar();
+  size(368,207); 
+   fondo= loadImage("fondo.jpg");
+   fondo.resize(736, 414);
+ 
+  canasta=new Canasta();
+ 
+  canasta.setPosicion(new PVector(width/2,190));
+  canasta.setVelocidad(new PVector(1,1));
 }
 
-public void keyPressed(){
-  if(key=='d'){
+void draw(){
+  background(300);
+  tint(colorear);
+  image(fondo,0,0);
+  canasta.dibujar();
+  movimiento();
+}
+
+public void movimiento(){
+  if(mouseButton == RIGHT){
     canasta.mover(1);
   }
-  if(key=='a'){
+ if(mouseButton== LEFT){
     canasta.mover(0);
 }
 }
