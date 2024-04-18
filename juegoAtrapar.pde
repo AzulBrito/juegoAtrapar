@@ -1,14 +1,16 @@
 PImage fondo;
 color colorear= color (190,130,50,150);
 private Canasta canasta;
+private Fruta frutas;
 
 void setup(){
-  size(368,207); 
+  size(368,260); 
    fondo= loadImage("fondo.jpg");
    fondo.resize(736, 414);
+   frutas = new Fruta(new PVector(width/2,0),new PVector(0,10));
  
   canasta=new Canasta();
- 
+   
   canasta.setPosicion(new PVector(width/2,190));
   canasta.setVelocidad(new PVector(1,1));
 }
@@ -19,6 +21,8 @@ void draw(){
   image(fondo,0,0);
   canasta.dibujar();
   movimiento();
+  frutas.dibujar();
+  frutas.mover();
 }
 
 public void movimiento(){
