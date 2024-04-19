@@ -23,6 +23,8 @@ void draw(){
   background(300);
   tint(colorear);
   image(fondo,0,0);
+  noTint();
+  dibujarPiso();
   canasta.dibujar();
   movimiento();
   frutas.dibujar();
@@ -39,4 +41,22 @@ public void movimiento(){
  if(mouseButton== LEFT){
     canasta.mover(0);
 }
+}
+
+void dibujarPiso(){
+  
+  int bloqueWidth = 10; 
+  int bloqueHeight = 15; 
+  int gap = 2; 
+
+  int inicioY = height - bloqueHeight * 4;
+  for (int i = 3; i >= 0; i--) {
+  int y = inicioY + i * bloqueHeight;
+  for (int j = 0; j < width / (bloqueWidth * 2 + gap); j++) {
+    int x = j * (bloqueWidth * 2+ gap) + (i % 2) * (bloqueWidth + gap);
+    fill(#A24F02);
+    rect(x, y, bloqueWidth, bloqueHeight);
+    rect(x + bloqueWidth + gap, y, bloqueWidth, bloqueHeight);
+  }
+ }
 }
