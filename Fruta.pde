@@ -4,7 +4,7 @@ class Fruta{
   private PVector velocidad;
   
   public Fruta(){
-    imagen = loadImage("asteroide.png");
+    imagen = loadImage("fruta1.png");
   }
   
   public Fruta(PVector posicion, PVector velocidad){
@@ -23,6 +23,7 @@ class Fruta{
       this.posicion.y+=this.velocidad.y;
     }else{
       this.posicion.y=0;
+      this.posicion.x=random(width);
     }
     
   }
